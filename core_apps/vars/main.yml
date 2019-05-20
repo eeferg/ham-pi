@@ -49,7 +49,6 @@ required_packages:
   - libgconf-2-4
   - libgdbm-dev
   - libgraphics-magick-perl
-  - libgraphicsmagick++1
   - libgraphicsmagick++1-dev
   - libgraphicsmagick1-dev
   - libhamlib++-dev
