@@ -1,0 +1,9 @@
+---
+# playbook core_apps
+
+- hosts: all
+  roles: 
+  - core_apps
+  become: yes
+  become_method: sudo
+...

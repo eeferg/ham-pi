@@ -1,0 +1,108 @@
+ #!/usr/bin/env bash
+
+##
+# Helper functions for Python virtual environments
+#
+#   By:
+#     peterjpierce@gmail.com
+#     https://github.com/peterjpierce
+#
+#   Activate, deactivate, list or change to Python virtual environments
+#
+#   Usage:
+#     v.on  : activate or change to a virtual environment
+#     v.off : deactivate the current virtual environment
+#     v.ls  : show your current Python location and version
+#     v.mk  : create a new virtual environment (for a given python version)
+#     v.pip : install or upgrade pip in an activated virtual environment
+#     v.pf  : show installed libraries (pip freeze)
+#     v.pi  : install a library (pip install <library>)
+#     v.pir : install all libraries from a requirements file (pip install -r <file>)
+#
+#   Setup:
+#     - source this file into your .profile, .bash_profile or runtime environment
+#     - requires a UNIX-like OS such as Linux, FreeBSD or Mac
+#     - expects your virtual environments to live in env/, pyenv/, etc. in
+#       projects' root directories
+#
+#   Notes:
+#     - works equally well with Python 2 or Python 3
+
+# configure here (only)
+PYTHONS_BASEDIR=/opt/python
+
+function die { echo $1 && exit 1; }
+
+# activate or change to (pass environment name as $1)
+function v.on {
+
+  if [[ -n $1 ]]; then
+    for trydir in $1/pyenv $1/env $1; do
+      maybe=$trydir/bin/activate
+      [[ -e $maybe ]] && target=$maybe && break
+    done
+  else
+    target=$(ls */bin/activate 2>/dev/null)
+  fi
+
+  if [[ -n $target ]]; then
+    deactivate 2>/dev/null
+    source $target
+    echo "using $(which python)"
+  else
+    echo "environment not found (hint: try 'v.mk')"
+  fi
+}
+
+
+# deactivate, ignoring vacuous attempts
+alias v.off='deactivate 2>/dev/null'
+
+
+# list existing with Python version
+function v.ls {
+  location=$(which python)
+  ver=$($location --version 2>&1 | cut -f2 -d' ')
+  echo -e "$location\t($ver)"
+}
+
+
+# upgrade or install pip in an activated environment
+GETPIP=https://raw.github.com/pypa/pip/master/contrib/get-pip.py
+function v.pip {
+  if [[ -n $_OLD_VIRTUAL_PATH ]] && [[ -n $VIRTUAL_ENV ]]; then
+    if [[ ! -e $VIRTUAL_ENV/bin/pip ]]; then
+      echo "installing pip"
+      wget -O - --no-check-certificate $GETPIP | python
+    fi
+    echo "upgrading pip"
+    pip install --upgrade pip
+    pip install --upgrade setuptools
+  else
+    echo "use 'v.on' first to activate the target environment"
+  fi
+}
+
+
+# make a new virtual environment
+function v.mk {
+  [[ -n $1 ]] && version=$1 || die "provide Python version"
+  [[ -n $2 ]] && envdir=$2 || envdir='env'
+  echo "making $version environment in $(pwd)/$envdir"
+  $PYTHONS_BASEDIR/$version/bin/python -m venv $envdir
+}
+
+
+# miscellaneous PIP shortcuts
+v.pf() { pip freeze; }
+
+v.pi() {
+  [[ -n $1 ]] && reqts=$1 || die "provide dependency(ies) to install"
+  pip install $@
+}
+
+v.pir() {
+  [[ -n $1 ]] && reqts=$1 || die "provide requirements file"
+  pip install -r $reqts
+}
+

@@ -1,0 +1,2 @@
+# source in ed environment
+[[ -r $HOME/etc/personal.env ]] && source $HOME/etc/personal.env
