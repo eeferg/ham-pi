@@ -108,6 +108,37 @@ sudo cmake --build . --target install
 
 ### Xastir
 #### Install
+- Clone Git repository
+```
+cd ~
+git clone https://github.com/Xastir/Xastir.git
+```
+- Compile and install
+```
+cd Xastir
+./bootstrap.sh
+mkdir build && cd build
+../configure CPPFLAGS="-I/usr/include/geotiff"
+make
+sudo make install
+sudo chmod 4555 /usr/local/bin/xastir
+```
+
+### GPredict
+#### Install
+- Clone Git repository
+```
+cd ~
+git clone https://github.com/csete/gpredict.git
+```
+- Compile and install
+```
+cd gpredict
+./autogen.sh
+make
+sudo make install
+```
+
 
 ### CQRLog
 #### Install

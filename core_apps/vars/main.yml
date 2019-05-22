@@ -109,8 +109,8 @@ required_packages:
   - x11-utils
   - gsfonts
   - gsfonts-x11
-  - xfonts-base
-  - t1-xfree86-nonfree
-  - ttf-xfree86-nonfree
-  - xfonts-75dpi
-  - xfonts-100dpi
+  - libxpm-dev 
+  - libxpm4 
+  - libproj-dev 
+  - libgeotiff-dev
+
