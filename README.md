@@ -60,6 +60,14 @@ git clone https://github.com/W4EDF/ham-pi.git
 
 ## Initial Build
 
+Run the initialization script to start the build and supply the root password (your pi account password)
+```
+cd ~/ham-pi
+bash init_script.sh
+sudo reboot
+```
+
+
 ## Applications
 
 ### FLDigi 
@@ -141,9 +149,28 @@ sudo make install
 
 
 ### CQRLog
+I do not currently have a reliable set of instructions to compile but the developers have a Raspbian image that works well.
 #### Install
+Download the binary image
+```
+wget https://www.cqrlog.com/files/cqrlog_2.3.0/cqrlog_2.3.0-1_armhf.deb
+```
+
+Install
+```
+sudo dpkg -i cqrlog_2.3.0/cqrlog_2.3.0-1_armhf.deb
+```
 
 ## Updating Applications
 
 
 ## Future Additions
+
+## Raspberry Tips and Tricks
+
+#### Disable WiFi/Bluetooth
+Add the following to /boot/config.txt
+```
+dtoverlay=pi3-disable-wifi
+dtoverlay=pi3-disable-bt
+```
