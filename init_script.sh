@@ -48,4 +48,4 @@ sudo apt install -y glib2.0 gtk2.0 goocanvas-2.0 libltdl-dev libtool libudev-dev
 # Ansible is a tool to help you automate instals and configurations.  
 # I use it in a very basic form here and only install usefull apps and needed libraries
 
-ansible-playbook -i host.inv ./core_apps.yml --ask-sudo-pass
+ansible-playbook -i host.inv ./core_apps.yml --ask-become-pass

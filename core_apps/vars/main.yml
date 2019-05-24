@@ -96,6 +96,7 @@ required_packages:
   - resolvconf
   - shapelib
   - tcllib
+  - texinfo
   - tmux
   - unixodbc
   - unixodbc-dev
