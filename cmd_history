@@ -1,0 +1,265 @@
+exit
+sudo raspi-config 
+cd /etc
+ls
+cd vnc
+ls
+cat config
+cd config.d/
+ls
+cat common
+cd ..
+ls
+cat config
+ls
+exit
+sudo raspi-config 
+ls
+sudo raspi-config
+sudo reboot
+ls
+ip addr
+sudo raspi-config
+sudo reboot
+exit
+xit
+exit
+ls
+ls -a
+ll
+ls -a
+ls -ls
+ls -la
+cd .ssh
+ls
+ls -la
+cd
+ssh-add .ssh/ebradshaw_rsa
+cd git/laptop_build/
+ls
+vi pre_install.sh 
+ls
+ssh-add .ssh/ebradshaw_rsa
+ls
+mkdir git
+cd git
+sudo apt install git
+git clone git@bitbucket.org:edbradshaw/ubuntu_ham.git
+git clone git@bitbucket.org:edbradshaw/laptop_build.git
+ls
+cd laptop_build/
+ls
+more pre_install.sh 
+ls
+vi pre_install.sh 
+bash pre_install.sh 
+sudo reboot
+htop
+cd git/laptop_build/
+ls
+vi pre_install.sh 
+vim
+sudo apt install vim
+vim
+ls
+vi pre_install.sh 
+more README.md 
+ls
+vim
+more README.md 
+ansible-playbook -i host.inv core_apps.yml --ask-sudo-pass
+vim
+ansible-playbook -i host.inv core_apps.yml --ask-sudo-pass
+vim
+ansible-playbook -i host.inv core_apps.yml --ask-sudo-pass
+vim
+vi core_apps/vars/main.yml 
+sudo apt install gconf-service-backend
+vi core_apps/vars/main.yml 
+ansible-playbook -i host.inv core_apps.yml --ask-sudo-pass
+vim
+sudo reboot
+sudo apt update
+sudo apt upgrade
+sudo shutdown -h now
+ls
+htop
+exut
+exit
+cd git/laptop_build/
+ls
+vim post_install.sh 
+cat post_install.sh 
+cd 
+cd git/laptop_build/dotfiles/
+ls
+more dconf_user_cfg 
+cat dconf_user_cfg 
+ls
+cd ..
+ls
+clear
+ls
+cd ubuntu_ham/
+ls
+cat post_install.sh 
+cat README.md 
+sudo apt install build-essential libmotif-dev libax25 libax25-dev icsmagick-libmagick-dev-compat libexif-dev libgraphics-magick-perl libgraphicsmagick++1 aphicsmagick++1-dev libgraphicsmagick1-dev libwmf-dev gpsmanshp libshp-dev shapelib b gdal-bin libcfitsio-dev libltdl3-dev libpq-dev libsqlite0 libsqlite0-dev python-gdal dbc unixodbc-dev qgis curl x11proto-print-dev
+ls
+cd 
+cd Downloads/
+ls
+wget http://www.w1hkj.com/files/fldigi/fldigi-4.1.03.tar.gz
+tar zxvf fldigi-4.1.03.tar.gz 
+cd fldigi-4.1.03/
+ls
+./configure
+make
+sudo vi /etc/dphys-swapfile 
+sudo /etc/init.d/dphys-swapfile 
+sudo /etc/init.d/dphys-swapfile stop
+sudo /etc/init.d/dphys-swapfile start
+free -m
+make
+sudo make install
+fldigi
+cd
+cd Downloads/
+wget https://physics.princeton.edu/pulsar/K1JT/wsjtx-2.0.1.tgz
+wget -no-check-certificate https://physics.princeton.edu/pulsar/K1JT/wsjtx-2.0.1.tgz
+wget --no-check-certificate https://physics.princeton.edu/pulsar/K1JT/wsjtx-2.0.1.tgz
+tar zxvf wsjtx-2.0.1.tgz 
+cd wsjtx-2.0.1/
+mkdir build; cd build
+cmake ../.
+cmake --build .
+sudo cmake --build . --target install
+wsjtx 
+ls /dev
+
+
+gps time
+
+sudo apt install gpsd gpsd-clients python-gps chrony
+history
+sudo vi /etc/chrony/chrony.conf
+sudo nano /etc/default/gpsd
+sudo vi /etc/default/gpsd 
+sudo reboot
+sudo systemctl is-active gpsd
+sudo vi /etc/default/gpsd 
+tail /var/log/syslog
+sudo service gpsd start
+sudo systemctl is-active gpsd
+sudo systemctl is-active chronyd
+date
+cgps -s
+gpsmon -n
+sudo vi /etc/chrony/chrony.conf
+sudo reboot
+history
+sudo systemctl is-active gpsd
+sudo systemctl is-active chronyd
+sudo vi /etc/default/gpsd
+sudo reboot
+sudo systemctl is-active gpsd
+sudo dpkg-reconfigure gpsd
+sudo reboot
+sudo systemctl is-active gpsd
+sudo vi /etc/default/gpsd
+sudo dpkg-reconfigure gpsd
+sudo reboot
+sudo systemctl is-active gpsd
+sudo systemctl gpsd start
+sudo service gpsd start
+chrony sources -v
+sudo chrony sources -v
+sudo chronyc sources -v
+date
+sudo chronyc tracking
+sudo chronyc makestep
+sudo chronyc tracking
+sudo chronyc makestep
+sudo chronyc tracking
+date
+sudo chronyc tracking
+exit
+sudo find / | grep '\.desktop'
+sudo find / | grep '\.desktop' | grep wsjt
+sudo find / | grep '\.desktop' | grep fldigi
+vi /usr/local/share/applications/fldigi.desktop
+sudo vi /usr/local/share/applications/fldigi.desktop
+sudo vi /usr/local/share/applications/wsjtx.desktop
+cd .config/
+ls
+cd lxpanel/
+ls
+cd LXDE-pi/panels/
+ls
+vi panel 
+lxpanelctl restart
+ls
+cd ..
+ls
+cat config
+cd ..
+ls
+cd  ..
+ls
+ls -a
+sudo lxpanelctl restart
+sudo vi /etc/xdg/menus/lxde-applications.menu
+sudo lxpanelctl restart
+firefox
+ls
+vim
+cd .config/
+ls
+cd lxpanel/
+ls
+cd LXDE-pi/panels/
+ls
+vi panel 
+cd /etc/xdg
+ls
+cd menus/
+ls
+sudo vi lxde-applications.menu 
+sudo vi lxde-pi-applications.menu 
+sudo reboot
+history
+cd /etc/xdg/menus/
+ls
+sudo vi lxde-applications.menu 
+lxpanelctl restart
+cd /usr/share/desktop-directories/
+ls
+sudo touch lxde-hamradio.directory
+ls
+cat lxde-other.directory 
+sudo cp lxde-other.directory lxde-hamradio.directory 
+sudo vi lxde-hamradio.directory 
+history
+sudo lxpanelctl restart
+ls
+cat lxde-hamradio.directory 
+cd
+ls
+cd .config/
+ls
+cd lxpanel/
+ls
+cd LXDE-pi/panels/
+ls
+cat panel 
+grep Ham panel 
+history
+cd /usr/local/
+ls
+cd share
+ls
+cd applications/
+ls
+sudo vi flarq.desktop 
+sudo vi message_aggregator.desktop 
+history
